@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>Customized Input Select Menus - Demo</title>
+  <meta name="author" content="Thunder Shiviah">
+  <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/selectize.css">
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="js/selectize.min.js"></script>
+</head>
+
+<body>
+  <div id="w">
+    <div id="content">
+      <h1>Custom Selectize.js Menu for Koru college drop down menu</h1>
+      
+      <form id="testform" method="post" action="#">
+        <div class="formrow">
+          <label for="name">Name:</label>
+          <input type="text" id="name" class="basictxt" placeholder="Your name...">
+        </div>
+        
+        <div class="formrow">
+          <label for="email">Email:</label>
+          <input type="text" id="email" class="basictxt" placeholder="Your email...">
+        </div>
+        
+        <div class="formrow">
+          <label for="subject">Subject:</label>
+          <select id="subject">
+            <option value="1">University of Oregon</option>
+            <option value="2">USC</option>
+            <option value="3">UCLA</option>
+            <option value="5">Harvard</option>
+            <option value="4">Stanford</option>
+          </select>
+        </div>
+        
+        <div class="formrow">
+          <label for="tags">Tags:</label>
+          <input type="text" id="tags" value="website,graphics,question">
+        </div>
+        
+        <div class="formrow">
+          <label for="message">Message:</label>
+          <textarea class="basictxtarea" id="message"></textarea>
+          <input type="submit" class="large button" value="Send Message">
+        </div>
+        
+        
+      </form>
+    </div>
+  </div>
+<script type="text/javascript">
+$(function() {
+  $('#testform').submit(function(e){
+    e.preventDefault();
+  });
+  
+  $('#subject').selectize({create: true});
+  $('#tags').selectize({    
+    delimiter: ',',
+    persist: true,
+    create: function(input) {
+      return {
+        value: input,
+        text: input
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>
